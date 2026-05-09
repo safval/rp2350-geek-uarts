@@ -1,7 +1,8 @@
 Raspberry Pi Pico USB-UART Bridge
 =================================
 
-This program bridges the Raspberry Pi Pico HW UARTs to two independent USB CDC serial devices in order to behave like any other USB-to-UART Bridge controllers.
+This program bridges the [RP2350-GEEK](https://www.waveshare.com/wiki/RP2350-GEEK) HW UARTs to two independent USB CDC serial devices in order to behave like any other USB-to-UART Bridge controllers.
+
 
 Disclaimer
 ----------
@@ -11,12 +12,12 @@ This software is provided without warranty, according to the MIT License, and sh
 Raspberry Pi Pico Pinout
 ------------------------
 
-| Raspberry Pi Pico GPIO | Function |
-|:----------------------:|:--------:|
-| GPIO16 (Pin 21)        | UART0 TX |
-| GPIO17 (Pin 22)        | UART0 RX |
-| GPIO4 (Pin 6)          | UART1 TX |
-| GPIO5 (Pin 7)          | UART1 RX |
+| Connector | GPIO   | Function |
+|:---------:|:------:|:--------:|
+| DEBUG     | GPIO2  | UART0 TX |
+| DEBUG     | GPIO3  | UART0 RX |
+| UART      | GPIO4  | UART1 TX |
+| UART      | GPIO5  | UART1 RX |
 
 Build for Raspberry Pi Pico / Pico 2
 ------------------------------------

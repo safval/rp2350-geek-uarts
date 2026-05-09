@@ -28,8 +28,6 @@ typedef struct {
 	uart_inst_t *const inst;
 	uint irq;
 	void *irq_fn;
-	uint8_t tx_pin;
-	uint8_t rx_pin;
 } uart_id_t;
 
 typedef struct {
@@ -52,14 +50,10 @@ const uart_id_t UART_ID[CFG_TUD_CDC] = {
 		.inst = uart0,
 		.irq = UART0_IRQ,
 		.irq_fn = &uart0_irq_fn,
-		.tx_pin = 16,
-		.rx_pin = 17,
 	}, {
 		.inst = uart1,
 		.irq = UART1_IRQ,
 		.irq_fn = &uart1_irq_fn,
-		.tx_pin = 4,
-		.rx_pin = 5,
 	}
 };
 
@@ -258,10 +252,6 @@ void init_uart_data(uint8_t itf)
 	const uart_id_t *ui = &UART_ID[itf];
 	uart_data_t *ud = &UART_DATA[itf];
 
-	/* Pinmux */
-	gpio_set_function(ui->tx_pin, GPIO_FUNC_UART);
-	gpio_set_function(ui->rx_pin, GPIO_FUNC_UART);
-
 	/* USB CDC LC */
 	ud->usb_lc.bit_rate = DEF_BIT_RATE;
 	ud->usb_lc.data_bits = DEF_DATA_BITS;
@@ -302,6 +292,12 @@ int main(void)
 	int itf;
 
 	usbd_serial_init();
+
+	gpio_set_function(2, GPIO_FUNC_UART_AUX);
+	gpio_set_function(3, GPIO_FUNC_UART_AUX);
+
+	gpio_set_function(4, GPIO_FUNC_UART);
+	gpio_set_function(5, GPIO_FUNC_UART);
 
 	for (itf = 0; itf < CFG_TUD_CDC; itf++)
 		init_uart_data(itf);
