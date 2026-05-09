@@ -1,7 +1,4 @@
 // SPDX-License-Identifier: MIT
-/*
- * Copyright 2021 Álvaro Fernández Rojas <noltari@gmail.com>
- */
 
 #include <hardware/irq.h>
 #include <hardware/structs/sio.h>
@@ -10,6 +7,7 @@
 #include <pico/stdlib.h>
 #include <string.h>
 #include <tusb.h>
+#include "LCD_Test.h"  //example
 
 #if !defined(MIN)
 #define MIN(a, b) ((a > b) ? b : a)
@@ -291,6 +289,11 @@ int main(void)
 {
 	int itf;
 
+
+
+    LCD_1in14_test();
+
+
 	usbd_serial_init();
 
 	gpio_set_function(2, GPIO_FUNC_UART_AUX);
@@ -312,6 +315,8 @@ int main(void)
 			update_uart_cfg(itf);
 			uart_write_bytes(itf);
 		}
+		lv_task_handler();
+
 	}
 
 	return 0;
