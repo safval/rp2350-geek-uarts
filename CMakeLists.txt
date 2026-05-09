@@ -2,13 +2,11 @@
 
 cmake_minimum_required(VERSION 3.13)
 
-include(pico-sdk/pico_sdk_init.cmake)
+include($ENV{PICO_SDK_PATH}/pico_sdk_init.cmake)
 
 project(pico_uart_bridge)
 
-if (NOT PICO_BOARD)
-	set(PICO_BOARD pico CACHE STRING "Target board")
-endif()
+set(PICO_BOARD pico2 CACHE STRING "Target board")
 
 pico_sdk_init()
 
@@ -17,6 +15,7 @@ add_executable(uart_bridge uart-bridge.c usb-descriptors.c)
 target_include_directories(uart_bridge PUBLIC
 	./
 	pico-sdk/lib/tinyusb/src)
+
 
 target_link_libraries(uart_bridge
 	hardware_flash
