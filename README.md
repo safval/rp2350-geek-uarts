@@ -8,7 +8,7 @@ The current parameters of both serial ports are shown on the screen:
 ![rp2350-geek photo](./img.jxl)
 
 
-Raspberry Pi Pico Pinout
+Pinout
 ------------------------
 
 | Connector | GPIO   | Function |

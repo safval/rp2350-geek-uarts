@@ -21,6 +21,9 @@ add_subdirectory(./examples)
 
 add_executable(uart_bridge uart-bridge.c usb-descriptors.c)
 
+pico_set_program_name(uart_bridge  "RP2350-GEEK-UARTS")
+pico_set_program_version(uart_bridge "2")
+
 target_include_directories(uart_bridge PUBLIC
 	./
         ./examples
