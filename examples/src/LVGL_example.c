@@ -71,6 +71,8 @@ void LVGL_Init(void)
     disp_drv.draw_buf = &disp_buf;        
     disp_drv.hor_res = DISP_HOR_RES;
     disp_drv.ver_res = DISP_VER_RES;
+    disp_drv.rotated = LV_DISP_ROT_180;
+    disp_drv.sw_rotate = 1;
     lv_disp_t *disp= lv_disp_drv_register(&disp_drv);   
 
     /*4.Init DMA for transmit color data from memory to SPI*/

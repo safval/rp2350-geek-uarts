@@ -46,5 +46,8 @@ extern uint16_t DISP_HOR_RES;
 extern uint16_t DISP_VER_RES;
 
 int LCD_1in14_test(void);
+void Show_Params(uint8_t uart, uint32_t baud, uint8_t data_bits, char parity, uint8_t stops_bits);
+
+
 
 #endif
