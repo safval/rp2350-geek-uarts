@@ -5,11 +5,11 @@ This program bridges the [RP2350-GEEK](https://www.waveshare.com/wiki/RP2350-GEE
 
 The current parameters of both serial ports are shown on the screen:
 
-![rp2350-geek photo](./img.jxl)
+![rp2350-geek photo](./img.jpg)
 
 
 Pinout
-------------------------
+------
 
 | Connector | GPIO   | Function |
 |:---------:|:------:|:--------:|
